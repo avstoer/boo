@@ -15,4 +15,6 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	if !firing: return
-	body.apply_central_impulse( (get_global_mouse_position()-global_position).normalized()*force )
+	
+	if body is Enemy:
+		body.hurt(1)
