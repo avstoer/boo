@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/Weapon_LeafBlower.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Shoot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Effects/dust_texture.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Items/250px-RedFlamethrowerTilt.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.708008, 0.708008, 0.708008, 0.926702, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0 ), 0.0, 4.07866, 0, 0, Vector2( 0.757282, 0.982843 ), -0.200744, -0.200744, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+spread = 21.92
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 794.87
+initial_velocity_random = 0.55
+angular_velocity = 196.92
+angular_velocity_random = 0.31
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 6.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[node name="Weapon_LeafBlower" type="Node2D"]
+script = ExtResource( 1 )
+force = 160.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 30, 0 )
+rotation = 0.610865
+scale = Vector2( -0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="Shoot" parent="Bullets" instance=ExtResource( 2 )]
+attack_range = 350.0
+
+[node name="Shoot2" parent="Bullets" instance=ExtResource( 2 )]
+attack_range = 350.0
+
+[node name="Shoot3" parent="Bullets" instance=ExtResource( 2 )]
+attack_range = 350.0
+
+[node name="Shoot4" parent="Bullets" instance=ExtResource( 2 )]
+attack_range = 350.0
+
+[node name="Shoot5" parent="Bullets" instance=ExtResource( 2 )]
+attack_range = 350.0
+
+[node name="Shoot6" parent="Bullets" instance=ExtResource( 2 )]
+attack_range = 350.0
+
+[node name="Shoot7" parent="Bullets" instance=ExtResource( 2 )]
+attack_range = 350.0
+
+[node name="Shoot8" parent="Bullets" instance=ExtResource( 2 )]
+attack_range = 350.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+scale = Vector2( 0.496341, 0.5 )
+emitting = false
+amount = 32
+speed_scale = 1.4
+randomness = 0.08
+local_coords = false
+process_material = SubResource( 5 )
+texture = ExtResource( 3 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

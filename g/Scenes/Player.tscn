@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Weapon_Melee.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -126,3 +127,5 @@ anims/run_down = SubResource( 4 )
 anims/run_left = SubResource( 5 )
 anims/run_right = SubResource( 6 )
 anims/run_up = SubResource( 7 )
+
+[node name="Weapon_Melee" parent="." instance=ExtResource( 3 )]
