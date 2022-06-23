@@ -5,7 +5,7 @@ const ACCELERATION = 10
 const FRICTION = 10
 
 var velocity = Vector2.ZERO
-
+#yay gaem haha
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
