@@ -1,83 +1,47 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Weapon_Melee.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Items/hand.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Items/sword lol.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 27.0
-height = 90.0
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.98758
+height = 30.0435
 
 [sub_resource type="Animation" id=2]
 resource_name = "fire"
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/Area2D:position")
+tracks/0/path = NodePath(".:firing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 64, 0 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:firing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 0.25, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, true, false ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Pivot/Sprite:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.05, 0.05 ), Vector2( 1e-05, 1e-05 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Pivot/Sprite:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.05, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 64, 0 ), Vector2( 0, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Pivot/Area2D/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("Pivot:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 0.05, 0.15 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
@@ -89,22 +53,21 @@ script = ExtResource( 1 )
 force = 2500.0
 
 [node name="Pivot" type="Node2D" parent="."]
-rotation = -1.5708
+rotation = 1.5708
 
 [node name="Area2D" type="Area2D" parent="Pivot"]
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Area2D"]
-position = Vector2( 78, -3.40949e-06 )
+position = Vector2( 27.6032, -0.000183105 )
 rotation = -1.5708
-shape = SubResource( 3 )
-disabled = true
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Pivot"]
-visible = false
+position = Vector2( 25, 0 )
 rotation = 1.57079
-scale = Vector2( 1e-05, 1e-05 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

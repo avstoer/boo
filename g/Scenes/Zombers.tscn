@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/Zombers.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 35.0143
+radius = 12.1598
 
 [node name="Zombers" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
@@ -16,4 +16,5 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 self_modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
