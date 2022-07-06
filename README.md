@@ -14,10 +14,15 @@
 base weapon class : res://Scenes/Weapon.tscn
 
 WeaponName
+
 \-Pivot <- animate this guy when doing transformations
+
 \-\-Sprite
+
 \-\-HurtArea
+
 \-\-\-put a collision shape here
+
 \-AnimationPlayer
 
 Create a New Weapon by :
@@ -26,8 +31,11 @@ Create a New Weapon by :
 - Change Name as Appropriate
 - Save To res://Scenes/Weapons/ Folder
 - (Optional) Right Click on the Root Node and Extend Script 
+
 (currently this step is mandatory, as you need to set active to true)
+
 (active variable will be used when the Weapon Manager system is done)
+
 - Go to Inspector Tab on the Right and Create New Resource (left most button)
 - Select "WeaponAttribute" *see WeaponAttribute on what the variables mean
 - When That's Done, Save it as "*YourWeapon*_Attribute" in the res://Scenes/Weapons/ Folder
