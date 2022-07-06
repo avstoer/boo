@@ -12,6 +12,7 @@
 ## Weapon
 
 base weapon class : res://Scenes/Weapon.tscn
+see
 
 WeaponName
 
@@ -50,3 +51,14 @@ Tips on Animating :
 
 ## Effect
 
+Create a New Effect by :
+- Go to Scene/New Inherited Scene...
+- Select res://Scenes/Effect.tscn
+- Change Name to Effect_YourEffect
+- Save To res://Scenes/Effects/ Folder
+- Right Click on the Root Node and Extend Script 
+- Make a Function `func _setup(_config:Dictionary):`
+
+\_config is a Dictionary that Contains Your Effect Settings, You Can Use Any Keys You Like, Just Make Sure When You Use It, Name Those Keys Exactly as in Here
+
+- Make Your Effect, Add Nodes, Cool Code, Whatever
