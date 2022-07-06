@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/Weapon_Melee.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Items/sword lol.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Weapons/Dao.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Weapons/Dao_Attribute.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Items/sword lol.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 8.98758
@@ -36,29 +38,23 @@ tracks/1/keys = {
 "values": [ 90.0, 0.0, -90.0 ]
 }
 
-[node name="Weapon_Melee" type="Node2D"]
-script = ExtResource( 1 )
-force = 2500.0
+[node name="Dao" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+attribute = ExtResource( 3 )
 
-[node name="Pivot" type="Node2D" parent="."]
+[node name="Pivot" parent="." index="0"]
 rotation = 1.5708
 
-[node name="Area2D" type="Area2D" parent="Pivot"]
-collision_layer = 0
-collision_mask = 4
+[node name="Sprite" parent="Pivot" index="0"]
+position = Vector2( 25, 0 )
+rotation = 1.57079
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/HurtArea" index="0"]
 position = Vector2( 27.6032, -0.000183105 )
 rotation = -1.5708
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Pivot"]
-position = Vector2( 25, 0 )
-rotation = 1.57079
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/fire = SubResource( 1 )
-
-[connection signal="body_entered" from="Pivot/Area2D" to="." method="_on_Area2D_body_entered"]
+[node name="AnimationPlayer" parent="." index="1"]
+anims/base_attack = SubResource( 1 )
