@@ -12,7 +12,8 @@
 ## Weapon
 
 base weapon class : res://Scenes/Weapon.tscn
-see
+
+*see res://Scenes/Weapons/Dao.tscn for reference*
 
 WeaponName
 
@@ -26,7 +27,7 @@ WeaponName
 
 \-AnimationPlayer
 
-Create a New Weapon by :
+### Create a New Weapon by :
 - Go to Scene/New Inherited Scene...
 - Select res://Scenes/Weapon.tscn
 - Change Name as Appropriate
@@ -44,14 +45,18 @@ Create a New Weapon by :
 - Add CollisionShape2D to HurtArea
 - Make a Animation on AnimationPlayer Called "base_attack"
 
-Tips on Animating : 
+### Tips on Animating : 
 
 - hurtAreaActive is a boolean that decides whether the HurtArea can hurt enemies
 - When doing transformations like rotation and position, animate Pivot, that way the weapon's actual rotation doesn't get affected
 
 ## Effect
 
-Create a New Effect by :
+base weapon class : res://Scenes/Effect.tscn
+
+*see res://Scenes/Effects/Effect_Bleed.tscn for reference*
+
+### Create a New Effect by :
 - Go to Scene/New Inherited Scene...
 - Select res://Scenes/Effect.tscn
 - Change Name to Effect_YourEffect
@@ -61,4 +66,20 @@ Create a New Effect by :
 
 \_config is a Dictionary that Contains Your Effect Settings, You Can Use Any Keys You Like, Just Make Sure When You Use It, Name Those Keys Exactly as in Here
 
+applyee (currently) References to the Zomber Instance, or Any Enemy, Use `applyee.hurt()` or Other Stuff to Make the Effect
+
+It *Should* Reference to Any Entity Including Player
+
 - Make Your Effect, Add Nodes, Cool Code, Whatever
+
+### How To Use :
+
+On Weapon, You Can Use `add_effects()`
+
+`add_effects(PackedScene of the Effect, {"dmg": 0.5, "whateverKey": whateverValue})`
+
+The Keys Must Match the Ones You Use in That Effect Script Exactly
+
+This Will Inflict the Effect on Hit
+
+Or If You Have Reference to an Enemy, `thatEnemy.hurt(0, [{"PackedScene": PackedScene of the Effect, "Config": {"dmg": 0.5, "whateverKey": whateverValue}}])` Should Also Work, as Well as `thatEnemy.inflict({"PackedScene": PackedScene of the Effect, "Config": {"dmg": 0.5, "whateverKey": whateverValue}})`. This Mess Will Be Improved.
